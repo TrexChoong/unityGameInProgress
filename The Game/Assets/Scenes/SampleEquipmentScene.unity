@@ -260,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50497724}
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -0.000009082613, y: 13.090136, z: -14.142137}
+  m_LocalPosition: {x: 27.5, y: 13, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,6 +396,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &160557249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5549394743663049037, guid: b74b36718b2fa8946a307381a120a835,
+    type: 3}
+  m_PrefabInstance: {fileID: 477596167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186144565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041182736}
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -0.000009082613, y: 13.090136, z: -14.142137}
+  m_LocalPosition: {x: 27.5, y: 13, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1837,7 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Listener: {fileID: 1904053976}
-  ListenerTarget: {fileID: 0}
+  ListenerTarget: {fileID: 160557249}
   DefaultSwingSound:
   - {fileID: 8300000, guid: f310c4275c4a29c4395ab918aac34bbb, type: 3}
   - {fileID: 8300000, guid: c35407837ab202c49a3a941eecf0fbe1, type: 3}
