@@ -33,8 +33,8 @@ namespace CreatorKitCodeInternal
         public AudioClip CloseInventoryClip;
         
         [Header("Objectives")]
-        public Image ObjectivePointer1;
-        public Image ObjectivePointer2;
+        public Transform ObjectivePointer1;
+        public Transform ObjectivePointer2;
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
@@ -103,6 +103,16 @@ namespace CreatorKitCodeInternal
                 
             var stats = data.Stats.stats;
             StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
+
+            // staff pointer
+             //What is the difference in position?
+                Vector3 diff = (ObjectivePointer1.position - ObjectivePointer2.position);
+                
+                //We use aTan2 since it handles negative numbers and division by zero errors. 
+                float angle = Mathf.Atan2(diff.x, diff.z);
+                
+                //Now we set our new rotation. 
+                ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
         }
 
         void UpdateEnemyUI(CharacterData enemy)

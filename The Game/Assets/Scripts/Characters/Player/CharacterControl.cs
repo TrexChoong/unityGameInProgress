@@ -232,7 +232,6 @@ namespace CreatorKitCodeInternal {
                             }
                             else
                             {
-                                Debug.Log("Triggered mova: " + screenRay);
                                 MoveCheck(screenRay);
                             }
                         }
