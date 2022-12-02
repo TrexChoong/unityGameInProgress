@@ -31,6 +31,10 @@ namespace CreatorKitCodeInternal
         public Button OpenInventoryButton;
         public AudioClip OpenInventoryClip;
         public AudioClip CloseInventoryClip;
+        
+        [Header("Objectives")]
+        public Image ObjectivePointer1;
+        public Image ObjectivePointer2;
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
