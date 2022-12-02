@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CreatorKitCode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 namespace CreatorKitCodeInternal 
 {
@@ -35,9 +36,13 @@ namespace CreatorKitCodeInternal
         [Header("Objectives")]
         public Transform ObjectivePointer1;
         public Transform ObjectivePointer2;
+        public Transform ObjectivePointer3;
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
+
+        private NavMeshPath path;
+        private float elapsed = 0.0f;
 
         void Awake()
         {
@@ -60,6 +65,9 @@ namespace CreatorKitCodeInternal
             {
                 EnemyEffectIcones[i].gameObject.SetActive(false);
             }
+            
+            path = new NavMeshPath();
+            elapsed = 0.0f;
         }
 
         // Update is called once per frame
@@ -105,7 +113,7 @@ namespace CreatorKitCodeInternal
             StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
 
             // staff pointer
-             //What is the difference in position?
+                //What is the difference in position?
                 Vector3 diff = (ObjectivePointer1.position - ObjectivePointer2.position);
                 
                 //We use aTan2 since it handles negative numbers and division by zero errors. 
@@ -113,6 +121,26 @@ namespace CreatorKitCodeInternal
                 
                 //Now we set our new rotation. 
                 ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
+
+            // staff pointer based on navmesh
+            // Update the way to the goal every second.
+            elapsed += Time.deltaTime;
+            if (elapsed > 1.0f)
+            {
+                elapsed -= 1.0f;
+                NavMesh.CalculatePath(ObjectivePointer3.position, ObjectivePointer1.position, NavMesh.AllAreas, path);
+            }
+                if(path.corners.Length>0){
+                diff = (path.corners[0] - ObjectivePointer2.position);
+                
+                //We use aTan2 since it handles negative numbers and division by zero errors. 
+                angle = Mathf.Atan2(diff.x, diff.z);
+                
+                //Now we set our new rotation. 
+                ObjectivePointer3.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
+
+                }
+                
         }
 
         void UpdateEnemyUI(CharacterData enemy)
