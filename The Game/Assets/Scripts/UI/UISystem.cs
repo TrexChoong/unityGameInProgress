@@ -36,7 +36,6 @@ namespace CreatorKitCodeInternal
         [Header("Objectives")]
         public Transform ObjectivePointer1;
         public Transform ObjectivePointer2;
-        public Transform ObjectivePointer3;
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
@@ -78,7 +77,8 @@ namespace CreatorKitCodeInternal
 
         void UpdatePlayerUI()
         {
-            CharacterData data = PlayerCharacter.Data;
+            CharacterData data = PlayerCharacter.Data;       
+            NavMeshHit hit,hit2;
         
             PlayerHealthSlider.value = PlayerCharacter.Data.Stats.CurrentHealth / (float) PlayerCharacter.Data.Stats.stats.health;
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
@@ -110,37 +110,32 @@ namespace CreatorKitCodeInternal
         
                 
             var stats = data.Stats.stats;
+
             StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
-
-            // staff pointer
-                //What is the difference in position?
-                Vector3 diff = (ObjectivePointer1.position - ObjectivePointer2.position);
-                
-                //We use aTan2 since it handles negative numbers and division by zero errors. 
-                float angle = Mathf.Atan2(diff.x, diff.z);
-                
-                //Now we set our new rotation. 
-                ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
-
-            // staff pointer based on navmesh
-            // Update the way to the goal every second.
+            // Update the way to the goal every second     
             elapsed += Time.deltaTime;
+
             if (elapsed > 1.0f)
             {
-                elapsed -= 1.0f;
-                NavMesh.CalculatePath(ObjectivePointer3.position, ObjectivePointer1.position, NavMesh.AllAreas, path);
-            }
-                if(path.corners.Length>0){
-                diff = (path.corners[0] - ObjectivePointer2.position);
-                
-                //We use aTan2 since it handles negative numbers and division by zero errors. 
-                angle = Mathf.Atan2(diff.x, diff.z);
-                
-                //Now we set our new rotation. 
-                ObjectivePointer3.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
-
+                elapsed -= 1.0f;   
+                for (int i = 0; i < 30; i++)
+                {
+                    if (NavMesh.SamplePosition(ObjectivePointer2.position, out hit2, 10.0f, NavMesh.AllAreas))
+                    {
+                        NavMesh.CalculatePath(hit2.position, ObjectivePointer1.position, NavMesh.AllAreas, path);
+                    }
                 }
+
+                NavMesh.SamplePosition(ObjectivePointer1.position, out hit, 1.0f, NavMesh.AllAreas);
                 
+                if(path.corners.Length>0){
+                    Vector3 diff = (path.corners[1] - ObjectivePointer2.position);
+                    //We use aTan2 since it handles negative numbers and division by zero errors. 
+                    float angle = Mathf.Atan2(diff.x, diff.z);
+                    //Now we set our new rotation. 
+                    ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
+                }
+            }               
         }
 
         void UpdateEnemyUI(CharacterData enemy)
