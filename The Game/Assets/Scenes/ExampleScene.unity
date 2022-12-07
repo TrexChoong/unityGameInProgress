@@ -88552,6 +88552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CactusBossyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555574, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_RootOrder
