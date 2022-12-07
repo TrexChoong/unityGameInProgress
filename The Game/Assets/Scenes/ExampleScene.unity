@@ -10910,6 +10910,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CactusBossyEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.agility
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.defense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.strength
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_RootOrder
@@ -88551,6 +88571,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CactusBossyEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.health
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.agility
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.defense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: Stats.baseStats.strength
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555574, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
