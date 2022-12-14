@@ -10905,6 +10905,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272648618}
     m_Modifications:
+    - target: {fileID: 2695995029398501216, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695995029398501216, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695995029398501216, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695995029398501216, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fde76a69d35a4d24cabd1cecea52cb40, type: 2}
+    - target: {fileID: 2695995029398501216, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fde76a69d35a4d24cabd1cecea52cb40, type: 2}
     - target: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_Name
@@ -10913,27 +10938,42 @@ PrefabInstance:
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.health
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.agility
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
-        type: 3}
-      propertyPath: Stats.baseStats.defense
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
+      propertyPath: Stats.baseStats.defense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
       propertyPath: Stats.baseStats.strength
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_RootOrder
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
@@ -88575,22 +88615,22 @@ PrefabInstance:
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.health
-      value: 90
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.agility
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.defense
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555573, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: Stats.baseStats.strength
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555574, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
