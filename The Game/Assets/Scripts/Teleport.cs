@@ -7,12 +7,15 @@ public class Teleport : MonoBehaviour
 {
 
     //teleport
-    public Transform teleportTarget;
+    public GameObject teleportTarget;
     public GameObject thePlayer;
     private void OnTriggerEnter(Collider other)
     {
+        
         thePlayer.GetComponent<NavMeshAgent>().enabled = false;
         thePlayer.transform.position = teleportTarget.transform.position;
         thePlayer.GetComponent<NavMeshAgent>().enabled = true;
+        Destroy(gameObject);
+        Destroy(teleportTarget);
     }
 }
