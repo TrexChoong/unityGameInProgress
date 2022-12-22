@@ -15,7 +15,6 @@ public class Teleport : MonoBehaviour
         thePlayer.GetComponent<NavMeshAgent>().enabled = false;
         thePlayer.transform.position = teleportTarget.transform.position;
         thePlayer.GetComponent<NavMeshAgent>().enabled = true;
-        Destroy(gameObject);
-        Destroy(teleportTarget);
+        gameObject.SetActive(false);
     }
 }

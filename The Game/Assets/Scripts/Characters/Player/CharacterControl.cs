@@ -332,7 +332,6 @@ namespace CreatorKitCodeInternal {
                     {//sample just around where we hit, avoid setting destination outside of navmesh (ie. on building)
                         m_LastRaycastResult = point;
                         //m_Agent.SetDestination(hit.position);
-                        Debug.Log("test, location: " + hit.position);
                         m_Agent.CalculatePath(hit.position, m_CalculatedPath);
                     }
                 }
