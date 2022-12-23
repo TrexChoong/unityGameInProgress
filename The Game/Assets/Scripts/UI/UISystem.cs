@@ -55,7 +55,7 @@ namespace CreatorKitCodeInternal
             Instance = this;
         
             InventoryWindow.Init();
-            // QuestWindow.Init();
+            QuestWindow.InitQuests();
         }
 
         void Start()
@@ -63,8 +63,8 @@ namespace CreatorKitCodeInternal
             m_ClosedInventorySprite = ((Image)OpenInventoryButton.targetGraphic).sprite;
             m_OpenInventorySprite = OpenInventoryButton.spriteState.pressedSprite;
 
-            //m_ClosedQuestSprite = ((Image)OpenQuestButton.targetGraphic).sprite;
-            //m_OpenQuestSprite = OpenQuestButton.spriteState.pressedSprite;
+            m_ClosedQuestSprite = ((Image)OpenQuestButton.targetGraphic).sprite;
+            m_OpenQuestSprite = OpenQuestButton.spriteState.pressedSprite;
 
             for (int i = 0; i < TimedModifierIcones.Length; ++i)
             {
@@ -201,7 +201,7 @@ namespace CreatorKitCodeInternal
                 ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
                 QuestWindow.gameObject.SetActive(true);
                 //todo: Load quest data
-                //InventoryWindow.Load(PlayerCharacter.Data);
+                QuestWindow.LoadQuest(PlayerCharacter.Data);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }
         }

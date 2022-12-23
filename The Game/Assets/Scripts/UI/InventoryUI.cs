@@ -60,6 +60,23 @@ namespace CreatorKitCodeInternal
         
             EquipementUI.Init(this);
         }
+    
+        public void InitQuests()
+        {
+            CurrentlyDragged = null;
+        
+            m_ItemEntries = new ItemEntryUI[ItemSlots.Length];
+
+            for (int i = 0; i < m_ItemEntries.Length; ++i)
+            {
+                m_ItemEntries[i] = Instantiate(ItemEntryPrefab, ItemSlots[i]);
+                m_ItemEntries[i].gameObject.SetActive(false);
+                m_ItemEntries[i].Owner = this;
+                m_ItemEntries[i].InventoryEntry = i;
+            }
+        
+            // EquipementUI.Init(this);
+        }
 
         void OnEnable()
         {
@@ -76,6 +93,11 @@ namespace CreatorKitCodeInternal
             {
                 m_ItemEntries[i].UpdateEntry();
             }
+        }
+
+        public void LoadQuest(CharacterData data)
+        {
+            // do nothing
         }
 
         public void ObjectDoubleClicked(InventorySystem.InventoryEntry usedItem)
