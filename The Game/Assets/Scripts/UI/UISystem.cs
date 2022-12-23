@@ -192,13 +192,13 @@ namespace CreatorKitCodeInternal
         {
             if (QuestWindow.gameObject.activeSelf)
             {
-                ((Image)OpenQuestButton.targetGraphic).sprite = m_ClosedInventorySprite;
+                ((Image)OpenQuestButton.targetGraphic).sprite = m_ClosedQuestSprite;
                 QuestWindow.gameObject.SetActive(false);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = CloseInventoryClip});
             }
             else
             {
-                ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
+                ((Image)OpenQuestButton.targetGraphic).sprite = m_OpenQuestSprite;
                 QuestWindow.gameObject.SetActive(true);
                 //todo: Load quest data
                 QuestWindow.LoadQuest(PlayerCharacter.Data);
