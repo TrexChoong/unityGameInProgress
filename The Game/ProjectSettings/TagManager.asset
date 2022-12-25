@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleporter
+  - DestroyableFence
+  - VolcanoEnemy
   layers:
   - Default
   - TransparentFX
