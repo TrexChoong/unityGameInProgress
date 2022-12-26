@@ -18072,7 +18072,11 @@ MonoBehaviour:
   - {fileID: 398774593}
   QuestDescription: {fileID: 2053068706}
   ObjectivePointer: {fileID: 266832734}
-  ObjectiveTargets: []
+  ObjectiveTargets:
+  - {fileID: 393575067}
+  - {fileID: 1253988388}
+  - {fileID: 1682757751}
+  - {fileID: 1680648000}
   m_CompletedQuestSprite: {fileID: 21300000, guid: cdea6ea0e715f18458247e0f6a0f2fab,
     type: 3}
   m_QuestSprite1: {fileID: 21300000, guid: 03b38200f1e422f4dabd3e22b92031a6, type: 3}
