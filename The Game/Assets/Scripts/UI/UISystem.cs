@@ -37,6 +37,7 @@ namespace CreatorKitCodeInternal
         public GameObject QuestWindow;
         public Button OpenQuestButton;
         
+        // migrated to questUI
         [Header("Objectives")]
         public Transform ObjectivePointer1;
         public Transform ObjectivePointer2;
@@ -83,6 +84,10 @@ namespace CreatorKitCodeInternal
         void Update()
         {
             UpdatePlayerUI();
+        }
+
+        public void UpdateNavigationTarget(Transform target){
+            ObjectivePointer1 = target;
         }
 
         void UpdatePlayerUI()

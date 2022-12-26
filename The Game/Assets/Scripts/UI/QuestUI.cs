@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CreatorKitCodeInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,17 +27,21 @@ public class QuestUI : MonoBehaviour
         switch (progress) {
             case 1: 
             QuestDescription.text = "Something weird happened, talk to ilama to find out what.";
+            UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[0]);
             break;
             case 2: 
             QuestDescription.text = "Find the spaceship.";
             QuestSlots[0].sprite = m_QuestSprite1;
+            UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[1]);
             break;
             case 3: 
             QuestDescription.text = "Kill cactus bossy.";
+            UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[2]);
             break;
             case 4: 
             QuestDescription.text = "Talk to ilama.";
             QuestSlots[0].sprite = m_CompletedQuestSprite;
+            UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[0]);
             break;
             case 5: 
             QuestDescription.text = "Find legendary rake.";
@@ -46,6 +51,7 @@ public class QuestUI : MonoBehaviour
             QuestDescription.text = "Kill elite cactus bossy.";
             QuestSlots[1].sprite = m_CompletedQuestSprite;
             QuestSlots[2].sprite = m_QuestSprite3;
+            UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[3]);
             break;
             case 7: 
             QuestDescription.text = "Congratulations, you have saved the farm.";
