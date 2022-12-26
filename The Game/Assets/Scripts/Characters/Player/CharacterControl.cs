@@ -244,6 +244,8 @@ namespace CreatorKitCodeInternal {
             //Keyboard shortcuts
             if(Input.GetKeyUp(KeyCode.I))
                 UISystem.Instance.ToggleInventory();
+            else if(Input.GetKeyUp(KeyCode.Q))
+                UISystem.Instance.ToggleQuest();
         }
 
         void GoToRespawn()

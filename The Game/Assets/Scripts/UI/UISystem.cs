@@ -34,7 +34,7 @@ namespace CreatorKitCodeInternal
         public AudioClip CloseInventoryClip;
     
         [Header("Quest")]
-        public InventoryUI QuestWindow;
+        public GameObject QuestWindow;
         public Button OpenQuestButton;
         
         [Header("Objectives")]
@@ -55,7 +55,6 @@ namespace CreatorKitCodeInternal
             Instance = this;
         
             InventoryWindow.Init();
-            QuestWindow.InitQuests();
         }
 
         void Start()
@@ -200,8 +199,6 @@ namespace CreatorKitCodeInternal
             {
                 ((Image)OpenQuestButton.targetGraphic).sprite = m_OpenQuestSprite;
                 QuestWindow.gameObject.SetActive(true);
-                //todo: Load quest data
-                QuestWindow.LoadQuest(PlayerCharacter.Data);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }
         }
