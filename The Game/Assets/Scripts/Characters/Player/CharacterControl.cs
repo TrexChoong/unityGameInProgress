@@ -13,6 +13,8 @@ namespace CreatorKitCodeInternal {
         AnimationControllerDispatcher.IAttackFrameReceiver,
         AnimationControllerDispatcher.IFootstepFrameReceiver
     {
+        public Dialogue dialogue;
+        public GameObject intText;
         public static CharacterControl Instance { get; protected set; }
     
         public float Speed = 10.0f;
@@ -33,7 +35,7 @@ namespace CreatorKitCodeInternal {
         HighlightableObject m_Highlighted;
 
         RaycastHit[] m_RaycastHitCache = new RaycastHit[16];
-
+        private GameObject interactText;
         int m_SpeedParamID;
         int m_AttackParamID;
         int m_HitParamID;
@@ -52,7 +54,8 @@ namespace CreatorKitCodeInternal {
         NavMeshPath m_CalculatedPath;
 
         CharacterAudio m_CharacterAudio;
-
+        bool interact_Press = false;
+        string intetext = "InteractText";
         int m_TargetLayer;
         CharacterData m_CurrentTargetCharacterData = null;
         //this is a flag that tell the controller it need to clear the target once the attack finished.
@@ -69,7 +72,6 @@ namespace CreatorKitCodeInternal {
         }
 
         State m_CurrentState;
-
         void Awake()
         {
             Instance = this;
@@ -244,6 +246,15 @@ namespace CreatorKitCodeInternal {
             //Keyboard shortcuts
             if(Input.GetKeyUp(KeyCode.I))
                 UISystem.Instance.ToggleInventory();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (!interact_Press)
+                {
+                    Destroy(GameObject.Find(intetext));
+                    interact_Press = true;
+                    dialogue.StartDialogue();
+                }
+            }
         }
 
         void GoToRespawn()
@@ -457,6 +468,27 @@ namespace CreatorKitCodeInternal {
             });
         
             VFXManager.PlayVFX(VFXType.StepPuff, pos);  
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "NPC")
+            {
+                if (!interact_Press)
+                {
+                    interactText = Instantiate(intText, new Vector3(960, 44, 0), Quaternion.identity, GameObject.Find("GameUI").transform);
+                    interactText.name = "InteractText";
+                }
+ 
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.tag == "NPC")
+            {
+                Destroy(GameObject.Find(intetext));
+            }
         }
     }
 }
