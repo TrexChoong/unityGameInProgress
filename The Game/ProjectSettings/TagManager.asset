@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cam
+  - Cam2
+  - Music
+  - Option
   layers:
   - Default
   - TransparentFX
