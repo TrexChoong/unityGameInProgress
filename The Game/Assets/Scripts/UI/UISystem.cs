@@ -32,13 +32,21 @@ namespace CreatorKitCodeInternal
         public Button OpenInventoryButton;
         public AudioClip OpenInventoryClip;
         public AudioClip CloseInventoryClip;
+    
+        [Header("Quest")]
+        public GameObject QuestWindow;
+        public Button OpenQuestButton;
         
+        // migrated to questUI
         [Header("Objectives")]
         public Transform ObjectivePointer1;
         public Transform ObjectivePointer2;
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
+
+        Sprite m_ClosedQuestSprite;
+        Sprite m_OpenQuestSprite;
 
         private NavMeshPath path;
         private float elapsed = 0.0f;
@@ -54,6 +62,9 @@ namespace CreatorKitCodeInternal
         {
             m_ClosedInventorySprite = ((Image)OpenInventoryButton.targetGraphic).sprite;
             m_OpenInventorySprite = OpenInventoryButton.spriteState.pressedSprite;
+
+            m_ClosedQuestSprite = ((Image)OpenQuestButton.targetGraphic).sprite;
+            m_OpenQuestSprite = OpenQuestButton.spriteState.pressedSprite;
 
             for (int i = 0; i < TimedModifierIcones.Length; ++i)
             {
@@ -73,6 +84,10 @@ namespace CreatorKitCodeInternal
         void Update()
         {
             UpdatePlayerUI();
+        }
+
+        public void UpdateNavigationTarget(Transform target){
+            ObjectivePointer1 = target;
         }
 
         void UpdatePlayerUI()
@@ -173,6 +188,22 @@ namespace CreatorKitCodeInternal
                 ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
                 InventoryWindow.gameObject.SetActive(true);
                 InventoryWindow.Load(PlayerCharacter.Data);
+                SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
+            }
+        }
+
+        public void ToggleQuest()
+        {
+            if (QuestWindow.gameObject.activeSelf)
+            {
+                ((Image)OpenQuestButton.targetGraphic).sprite = m_ClosedQuestSprite;
+                QuestWindow.gameObject.SetActive(false);
+                SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = CloseInventoryClip});
+            }
+            else
+            {
+                ((Image)OpenQuestButton.targetGraphic).sprite = m_OpenQuestSprite;
+                QuestWindow.gameObject.SetActive(true);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }
         }

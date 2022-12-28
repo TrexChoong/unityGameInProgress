@@ -19,6 +19,12 @@ namespace CreatorKitCodeInternal
             public ItemEntryUI DraggedEntry;
             public RectTransform OriginalParent;
         }
+        public class QuestEntry
+        {
+            public string name;
+            public string description;
+            public string status;
+        }
     
         public RectTransform[] ItemSlots;
     
@@ -41,6 +47,7 @@ namespace CreatorKitCodeInternal
         ItemEntryUI[] m_ItemEntries;
         ItemEntryUI m_HoveredItem;
         CharacterData m_Data;
+        QuestEntry[] m_QuestData;
     
         public void Init()
         {
@@ -60,7 +67,6 @@ namespace CreatorKitCodeInternal
         
             EquipementUI.Init(this);
         }
-
         void OnEnable()
         {
             m_HoveredItem = null;
@@ -76,6 +82,11 @@ namespace CreatorKitCodeInternal
             {
                 m_ItemEntries[i].UpdateEntry();
             }
+        }
+
+        public void LoadQuest(CharacterData data)
+        {
+            // initialize quest here
         }
 
         public void ObjectDoubleClicked(InventorySystem.InventoryEntry usedItem)
