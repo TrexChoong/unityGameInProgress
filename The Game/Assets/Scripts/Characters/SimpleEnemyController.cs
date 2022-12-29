@@ -178,8 +178,8 @@ namespace CreatorKitCodeInternal {
             CharacterData playerData = CharacterControl.Instance.Data;
             
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
-            if (!m_CharacterData.CanAttackReach(playerData))
-                return;
+            //if (!m_CharacterData.CanAttackReach(playerData))
+            //    return;
             
             m_CharacterData.Attack(playerData);
         }
