@@ -246,6 +246,8 @@ namespace CreatorKitCodeInternal {
             //Keyboard shortcuts
             if(Input.GetKeyUp(KeyCode.I))
                 UISystem.Instance.ToggleInventory();
+            if (Input.GetKeyUp(KeyCode.Q))
+                UISystem.Instance.ToggleQuest();
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!interact_Press)
