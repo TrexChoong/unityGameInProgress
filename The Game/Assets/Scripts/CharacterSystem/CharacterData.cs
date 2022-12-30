@@ -12,6 +12,7 @@ namespace CreatorKitCode
     /// </summary>
     public class CharacterData : HighlightableObject
     {
+        public QuestUI instanceQuest;
         public string CharacterName;
 
         public StatSystem Stats;
@@ -107,6 +108,15 @@ namespace CreatorKitCode
         /// </summary>
         public void Death()
         {
+            //Debug.Log("haha");
+            //if (gameObject.name == "CactusBossyEnemy" && instanceQuest.CurrentQuestLevel == 3)
+            //{
+            //    instanceQuest.ProgressQuest();
+            //}
+            //if(gameObject.name == "CactusBossyEnemy2" && instanceQuest.CurrentQuestLevel == 9)
+            //{
+            //    instanceQuest.ProgressQuest();
+            //}
             Stats.Death();
         }
 

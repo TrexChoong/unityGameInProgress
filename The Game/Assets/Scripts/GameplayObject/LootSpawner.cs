@@ -6,9 +6,10 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
+using CreatorKitCodeInternal;
 #endif
 
-namespace CreatorKitCode 
+namespace CreatorKitCode
 {
     /// <summary>
     /// This class handle creating loot. It got a list of events and each events have a list of items with associated
@@ -17,7 +18,7 @@ namespace CreatorKitCode
     /// </summary>
     public class LootSpawner : MonoBehaviour
     {
-        [System.Serializable]
+        [Serializable]
         public class SpawnEvent
         {
             public LootEntry[] Entries;
@@ -38,13 +39,53 @@ namespace CreatorKitCode
     
         public SpawnEvent[] Events;
         public AudioClip SpawnedClip;
-    
+        private QuestUI instanceUI;
+
         /// <summary>
         /// Call this to trigger the spawning of the loot. Will spawn one item per event, picking the item randomly
         /// per event using the defined weight. Every call will pick randomly again (but most of the time, the caller
         /// will destroy the LootSpawner too as you spawn loot from something only once)
         /// </summary>
+
+        private void Start()
+        {
+            instanceUI = FindInActiveObjectByName("Quest").GetComponent<QuestUI>();
+        }
+        GameObject FindInActiveObjectByName(string name)
+        {
+            Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (objs[i].hideFlags == HideFlags.None)
+                {
+                    if (objs[i].name == name)
+                    {
+                        return objs[i].gameObject;
+                    }
+                }
+            }
+            return null;
+        }
+
         public void SpawnLoot()
+        {
+            if (instanceUI.CurrentQuestLevel == 2 && gameObject.name =="EasterEggDrop")
+            {
+                instanceUI.ProgressQuest();
+                Spawn();
+            }
+            if(instanceUI.CurrentQuestLevel == 7 && gameObject.name == "EasterEggDrop2")
+            {
+                instanceUI.ProgressQuest();
+                Spawn();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        public void Spawn()
         {
             Vector3 position = transform.position;
             SFXManager.PlaySound(SFXManager.Use.WorldSound, new SFXManager.PlayData()
@@ -52,7 +93,7 @@ namespace CreatorKitCode
                 Clip = SpawnedClip,
                 Position = position
             });
-        
+
             //we go over all the events.
             for (int i = 0; i < Events.Length; ++i)
             {
@@ -80,10 +121,10 @@ namespace CreatorKitCode
                     percentageEntry.Percentage = previousPercent + percent;
 
                     previousPercent = percentageEntry.Percentage;
-                
+
                     lookupTable.Add(percentageEntry);
                 }
-            
+
                 float rng = Random.value;
                 for (int k = 0; k < lookupTable.Count; ++k)
                 {
@@ -93,9 +134,9 @@ namespace CreatorKitCode
                         //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
                         var l = obj.AddComponent<Loot>();
                         l.Item = lookupTable[k].Entry.Item;
-                    
+
                         l.Spawn(position);
-                    
+
                         break;
                     }
                 }
@@ -225,5 +266,6 @@ public class LootSpawnerEditor : Editor
         menu.DropDown(position);
     }
 }
+
 
 #endif

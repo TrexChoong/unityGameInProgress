@@ -5,6 +5,8 @@ using System.Timers;
 using CreatorKitCode;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
@@ -13,8 +15,10 @@ namespace CreatorKitCodeInternal {
         AnimationControllerDispatcher.IAttackFrameReceiver,
         AnimationControllerDispatcher.IFootstepFrameReceiver
     {
+        public TMP_Text interactText;
         public Dialogue dialogue;
         public GameObject intText;
+        public QuestUI quest;
         public static CharacterControl Instance { get; protected set; }
     
         public float Speed = 10.0f;
@@ -35,7 +39,6 @@ namespace CreatorKitCodeInternal {
         HighlightableObject m_Highlighted;
 
         RaycastHit[] m_RaycastHitCache = new RaycastHit[16];
-        private GameObject interactText;
         int m_SpeedParamID;
         int m_AttackParamID;
         int m_HitParamID;
@@ -55,7 +58,7 @@ namespace CreatorKitCodeInternal {
 
         CharacterAudio m_CharacterAudio;
         bool interact_Press = false;
-        string intetext = "InteractText";
+        bool inDistance = false;
         int m_TargetLayer;
         CharacterData m_CurrentTargetCharacterData = null;
         //this is a flag that tell the controller it need to clear the target once the attack finished.
@@ -81,6 +84,7 @@ namespace CreatorKitCodeInternal {
         // Start is called before the first frame update
         void Start()
         {
+            interactText.text = string.Empty;
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 60;
         
@@ -250,12 +254,28 @@ namespace CreatorKitCodeInternal {
                 UISystem.Instance.ToggleQuest();
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (!interact_Press)
+                if (!interact_Press && quest.CurrentQuestLevel == 1 && inDistance && quest.NPCStart1)
                 {
-                    Destroy(GameObject.Find(intetext));
+                    interactText.text = string.Empty;
                     interact_Press = true;
-                    dialogue.StartDialogue();
+                    dialogue.StartDialogue(0);
                 }
+                if (!interact_Press && quest.CurrentQuestLevel == 4 && inDistance && quest.NPCStart1)
+                {
+                    interactText.text = string.Empty;
+                    interact_Press = true;
+                    dialogue.StartDialogue(1);
+                }
+                if (!interact_Press && quest.CurrentQuestLevel == 10 && inDistance && quest.NPCStart1)
+                {
+                    interactText.text = string.Empty;
+                    interact_Press = true;
+                    dialogue.StartDialogue(2);
+                }
+            }
+            if (interact_Press && quest.CurrentQuestLevel == 4)
+            {
+                interact_Press = false;
             }
         }
 
@@ -347,6 +367,7 @@ namespace CreatorKitCodeInternal {
                         //m_Agent.SetDestination(hit.position);
 
                         m_Agent.CalculatePath(hit.position, m_CalculatedPath);
+                        
                     }
                 }
             }
@@ -476,10 +497,14 @@ namespace CreatorKitCodeInternal {
         {
             if (other.tag == "NPC")
             {
-                if (!interact_Press)
+                inDistance = true;
+                if (!interact_Press && quest.NPCStart1)
                 {
-                    interactText = Instantiate(intText, new Vector3(960, 44, 0), Quaternion.identity, GameObject.Find("GameUI").transform);
-                    interactText.name = "InteractText";
+                    interactText.text = "Press <sprite name=\"E\"> to interact!";
+                }
+                else
+                {
+                    interactText.text = "Look at the quest for detail!";
                 }
  
             }
@@ -489,7 +514,8 @@ namespace CreatorKitCodeInternal {
         {
             if (other.tag == "NPC")
             {
-                Destroy(GameObject.Find(intetext));
+                inDistance = false;
+                interactText.text = string.Empty;
             }
         }
     }
