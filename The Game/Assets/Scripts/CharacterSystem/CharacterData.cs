@@ -1,6 +1,7 @@
 ﻿using System;
 using CreatorKitCodeInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,12 @@ namespace CreatorKitCode
     /// </summary>
     public class CharacterData : HighlightableObject
     {
+        [Header("Quest")]
         public QuestUI instanceQuest;
+        public GameObject QuestWindow;
+        public Button OpenQuestButton;
+        Sprite m_ClosedQuestSprite;
+        Sprite m_OpenQuestSprite;
         public string CharacterName;
 
         public StatSystem Stats;
@@ -59,6 +65,11 @@ namespace CreatorKitCode
             Animator anim = GetComponentInChildren<Animator>();
             if(anim != null)
                 SceneLinkedSMB<CharacterData>.Initialise(anim, this);
+                
+            if(OpenQuestButton){
+                m_ClosedQuestSprite = ((Image)OpenQuestButton.targetGraphic).sprite;
+                m_OpenQuestSprite = OpenQuestButton.spriteState.pressedSprite;
+            }
         }
 
         // Update is called once per frame
@@ -109,14 +120,13 @@ namespace CreatorKitCode
         public void Death()
         {
             //Debug.Log("haha");
-            //if (gameObject.name == "CactusBossyEnemy" && instanceQuest.CurrentQuestLevel == 3)
-            //{
-            //    instanceQuest.ProgressQuest();
-            //}
-            //if(gameObject.name == "CactusBossyEnemy2" && instanceQuest.CurrentQuestLevel == 9)
-            //{
-            //    instanceQuest.ProgressQuest();
-            //}
+            if ((gameObject.name == "CactusBossyEnemy" && instanceQuest.CurrentQuestLevel == 3) || (gameObject.name == "CactusBossyEnemy2" && instanceQuest.CurrentQuestLevel == 9))
+            {
+               //instanceQuest.ProgressQuest();               
+                ((Image)OpenQuestButton.targetGraphic).sprite = m_OpenQuestSprite;
+                QuestWindow.gameObject.SetActive(true);
+            }
+            
             Stats.Death();
         }
 
