@@ -126,30 +126,24 @@ namespace CreatorKitCodeInternal
             var stats = data.Stats.stats;
 
             StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
-            // Update the way to the goal every second     
-            elapsed += Time.deltaTime;
-
-            if (elapsed > 1.0f)
+            for (int i = 0; i < 30; i++)
             {
-                elapsed -= 1.0f;   
-                for (int i = 0; i < 30; i++)
+                if (NavMesh.SamplePosition(ObjectivePointer2.position, out hit2, 10.0f, NavMesh.AllAreas))
                 {
-                    if (NavMesh.SamplePosition(ObjectivePointer2.position, out hit2, 10.0f, NavMesh.AllAreas))
-                    {
-                        NavMesh.CalculatePath(hit2.position, ObjectivePointer1.position, NavMesh.AllAreas, path);
-                    }
+                    NavMesh.CalculatePath(hit2.position, ObjectivePointer1.position, NavMesh.AllAreas, path);
                 }
+            }
 
-                NavMesh.SamplePosition(ObjectivePointer1.position, out hit, 1.0f, NavMesh.AllAreas);
-                
-                if(path.corners.Length>0){
-                    Vector3 diff = (path.corners[1] - ObjectivePointer2.position);
-                    //We use aTan2 since it handles negative numbers and division by zero errors. 
-                    float angle = Mathf.Atan2(diff.x, diff.z);
-                    //Now we set our new rotation. 
-                    ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
-                }
-            }               
+            NavMesh.SamplePosition(ObjectivePointer1.position, out hit, 1.0f, NavMesh.AllAreas);
+            
+            if(path.corners.Length>0){
+                Vector3 diff = (path.corners[1] - ObjectivePointer2.position);
+                //We use aTan2 since it handles negative numbers and division by zero errors. 
+                float angle = Mathf.Atan2(diff.x, diff.z);
+                //Now we set our new rotation. 
+                ObjectivePointer2.rotation = Quaternion.Euler(90f, angle * Mathf.Rad2Deg, 0f);
+                return;
+            }
         }
 
         void UpdateEnemyUI(CharacterData enemy)

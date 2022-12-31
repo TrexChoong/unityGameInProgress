@@ -67,21 +67,23 @@ namespace CreatorKitCode
             return null;
         }
 
-        public void SpawnLoot()
+        public bool SpawnLoot()
         {
             if (instanceUI.CurrentQuestLevel == 2 && gameObject.name =="EasterEggDrop")
             {
                 instanceUI.ProgressQuest();
                 Spawn();
+                return true;
             }
-            if(instanceUI.CurrentQuestLevel == 7 && gameObject.name == "EasterEggDrop2")
+            else if(instanceUI.CurrentQuestLevel == 7 && gameObject.name == "EasterEggDrop2")
             {
                 instanceUI.ProgressQuest();
                 Spawn();
+                return true;
             }
             else
             {
-                return;
+                return false;
             }
         }
 

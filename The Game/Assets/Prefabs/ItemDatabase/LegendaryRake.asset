@@ -44,25 +44,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Legendary Rake
   ItemSprite: {fileID: 21300000, guid: 5d0f6ae4987d02846b822915a7301dfa, type: 3}
-  Description: The Rake of Legend. The Great Gardener used it to beat The Cactus Of
-    Destruction
+  Description: The Rake of Legend. The Great Gardener used it to beat The Cactus
+    Of Destruction
   WorldObjectPrefab: {fileID: 8115497767533682948, guid: 2ce28e09982cac64fa114271e3976374,
     type: 3}
   Slot: 666
-  MinimumStats:
-    health: 0
-    strength: 0
-    defense: 0
-    agility: 0
-    elementalProtection: 00000000000000000000000000000000
-    elementalBoosts: 00000000000000000000000000000000
+  MinimumStrength: 0
+  MinimumAgility: 0
+  MinimumDefense: 0
   EquippedEffects:
   - {fileID: 5115130312174508207}
-  HitSound: {fileID: 8300000, guid: c74e00911f61128449df13e99d9c4c48, type: 3}
+  HitSounds: []
+  SwingSounds: []
   Stats:
     Speed: 0.7
-    MinimumDamage: 10
-    MaximumDamage: 15
+    MinimumDamage: 15
+    MaximumDamage: 20
     MaxRange: 3
   AttackEffects:
   - {fileID: -2342415642362553291}
@@ -89,4 +86,3 @@ MonoBehaviour:
       agility: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
-    Timer: -1

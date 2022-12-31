@@ -26,8 +26,9 @@ namespace CreatorKitCode
         public override void InteractWith(CharacterData target)
         {
             
-            m_LootSpawner.SpawnLoot();
-            Destroy(this);
+            bool questDetect = m_LootSpawner.SpawnLoot();
+            if(questDetect)
+                Destroy(this);
         }
     }
 }

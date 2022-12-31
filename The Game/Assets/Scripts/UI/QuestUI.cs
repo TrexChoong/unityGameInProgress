@@ -21,7 +21,7 @@ namespace CreatorKitCodeInternal
         public Sprite m_QuestSprite2;
         public Sprite m_QuestSprite3;
         public GameObject buttonHide;
-        public int CurrentQuestLevel = 0;
+        public int CurrentQuestLevel = 1;
         public bool NPCStart1 = false;
         public FenceBreak quest6;
         public void ProgressQuest()
