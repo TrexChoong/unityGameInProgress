@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 namespace CreatorKitCodeInternal
 {
@@ -74,19 +75,19 @@ namespace CreatorKitCodeInternal
                     break;
                 case 7:
                     QuestDescription.text = "Find legendary rake.";
-                    QuestSlots[1].sprite = m_QuestSprite2;
+                    QuestSlots[1].sprite = m_CompletedQuestSprite;
+                    QuestSlots[2].sprite = m_QuestSprite3;
                     UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[6]);
                     NPCStart1 = false;
                     break;
                 case 8:
                     QuestDescription.text = "Go back and kill the final boss.";
-                    QuestSlots[1].sprite = m_QuestSprite2;
+                    QuestSlots[2].sprite = m_QuestSprite3;
                     UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[7]);
                     NPCStart1 = false;
                     break;
                 case 9:
                     QuestDescription.text = "Kill elite cactus bossy. (Hints to make it easier, wear the legendary rake u just got!)";
-                    QuestSlots[1].sprite = m_CompletedQuestSprite;
                     QuestSlots[2].sprite = m_QuestSprite3;
                     UISystem.Instance.UpdateNavigationTarget(ObjectiveTargets[8]);
                     NPCStart1 = false;
@@ -108,7 +109,7 @@ namespace CreatorKitCodeInternal
         // Start is called before the first frame update
         void Start()
         {
-            
+            Destroy(buttonHide);
             QuestDescription.text = "Welcome to our game, this is the beginning of your quest.";
             // for (int i = 0; i < QuestSlots.Length; ++i)
             // {
@@ -121,10 +122,6 @@ namespace CreatorKitCodeInternal
         void Update()
         {
             UpdateQuestProgress(CurrentQuestLevel);
-            if (NPCStart1)
-            {
-                Destroy(buttonHide);
-            }
             if (boss1.GetComponent<NavMeshAgent>() == false)
             {
                 if(CurrentQuestLevel == 3)
@@ -140,5 +137,6 @@ namespace CreatorKitCodeInternal
                 }
             }
         }
+
     }
 }

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using CreatorKitCodeInternal;
 using UnityEngine.SceneManagement;
+
 namespace CreatorKitCodeInternal
 {
     public class Dialogue : MonoBehaviour
@@ -117,6 +118,10 @@ namespace CreatorKitCodeInternal
                 GetComponent<RawImage>().color = col;
                 textComponent.text = string.Empty;
                 instanceUI.ProgressQuest();
+                if (index > 20)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
                 //gameObject.SetActive(false);
             }
         }
@@ -125,10 +130,6 @@ namespace CreatorKitCodeInternal
         {
             if (textComponent.text == character[index] + ":\n" + lines[index])
             {
-                if (index > 20)
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                }
                 NextLine();
             }
             else

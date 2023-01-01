@@ -7,6 +7,6 @@ public class SkipCreditScene : MonoBehaviour
 {
     public void SkipScene()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(0);
     }
 }
