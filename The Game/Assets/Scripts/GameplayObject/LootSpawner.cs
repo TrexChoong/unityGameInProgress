@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using CreatorKitCode;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using CreatorKitCodeInternal;
 #if UNITY_EDITOR
 using UnityEditor;
-using CreatorKitCodeInternal;
 #endif
 
 namespace CreatorKitCode
