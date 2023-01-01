@@ -20016,7 +20016,6 @@ Transform:
   - {fileID: 1327654686}
   - {fileID: 445716589}
   - {fileID: 1967887480}
-  - {fileID: 659103622}
   - {fileID: 325700202}
   m_Father: {fileID: 1001145411}
   m_RootOrder: 1
@@ -26197,82 +26196,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288a42e6b35c81446a49858f8dcaa6cd, type: 3}
---- !u!1 &659103621
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 659103622}
-  - component: {fileID: 659103625}
-  - component: {fileID: 659103624}
-  - component: {fileID: 659103623}
-  m_Layer: 10
-  m_Name: EasterEggDrop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &659103622
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659103621}
-  m_LocalRotation: {x: -0, y: -0.0859144, z: -0, w: 0.99630255}
-  m_LocalPosition: {x: 165.58957, y: 19.186085, z: 5.410816}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 517382846}
-  m_RootOrder: 60
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &659103623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659103621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689ee8a784a48d744ae3d5b388869d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &659103624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659103621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31287f2e8cc8af644be80f291a2f7268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - Entries:
-    - Weight: 1
-      Item: {fileID: 11400000, guid: 4502fd6e5e8fe074a97186a24aa28c3e, type: 2}
-  SpawnedClip: {fileID: 0}
---- !u!65 &659103625
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659103621}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.3914137, y: 3.1386425, z: 4.7780166}
-  m_Center: {x: 3.2941782, y: 1.0693214, z: 1.4154016}
 --- !u!1001 &660442207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32927,7 +32850,6 @@ GameObject:
   - component: {fileID: 822608031}
   - component: {fileID: 822608030}
   - component: {fileID: 822608029}
-  - component: {fileID: 822608033}
   - component: {fileID: 822608034}
   m_Layer: 0
   m_Name: Camera 1
@@ -33035,18 +32957,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 29.216, y: -12.73, z: 2.205}
---- !u!114 &822608033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822608028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566303e957c37e4489d567abf5613e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &822608034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47686,6 +47596,7 @@ GameObject:
   - component: {fileID: 1186711661}
   - component: {fileID: 1186711660}
   - component: {fileID: 1186711664}
+  - component: {fileID: 1186711665}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -47797,6 +47708,22 @@ MonoBehaviour:
   musicSlider: {fileID: 1018031590}
   gameSlider: {fileID: 24501965}
   resolutionDropdown: {fileID: 1253127666}
+--- !u!114 &1186711665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186711659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a24f499cd98cf40bcc87378304f0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: 0
+  game: 0
+  ambience: 0
+  effect: 0
 --- !u!1001 &1188664729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62694,7 +62621,7 @@ PrefabInstance:
     - target: {fileID: 4961351870411836090, guid: 413d04a8e1a54774390ab44654b70554,
         type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4961351870411836090, guid: 413d04a8e1a54774390ab44654b70554,
         type: 3}

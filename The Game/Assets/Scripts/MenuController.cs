@@ -11,7 +11,7 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Destroy(SettingsMenu.Instance.mainMenu);
-        backgroundMusic.SetActive(false);
+        Destroy(backgroundMusic);
     }
 
     public void Option()

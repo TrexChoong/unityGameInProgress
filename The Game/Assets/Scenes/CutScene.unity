@@ -2424,7 +2424,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83624861}
-  - component: {fileID: 83624860}
   - component: {fileID: 83624859}
   - component: {fileID: 83624862}
   m_Layer: 0
@@ -2464,18 +2463,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
---- !u!114 &83624860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83624858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0af1b6297c53c4c86979b2c8abc8cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &83624861
 Transform:
   m_ObjectHideFlags: 0
@@ -51187,87 +51174,10 @@ Transform:
   - {fileID: 1629092306}
   - {fileID: 1320990207}
   - {fileID: 590527755}
-  - {fileID: 1253988388}
   - {fileID: 1328285307}
   m_Father: {fileID: 1419090759}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1253988387
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1253988388}
-  - component: {fileID: 1253988389}
-  - component: {fileID: 1253988391}
-  - component: {fileID: 1253988390}
-  m_Layer: 10
-  m_Name: EasterEggDrop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &1253988388
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253988387}
-  m_LocalRotation: {x: -0, y: -0.0859144, z: -0, w: 0.99630255}
-  m_LocalPosition: {x: 165.58957, y: 19.186085, z: 5.410816}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1253663831}
-  m_RootOrder: 60
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1253988389
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253988387}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.3914137, y: 3.1386425, z: 4.7780166}
-  m_Center: {x: 3.2941782, y: 1.0693214, z: 1.4154016}
---- !u!114 &1253988390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253988387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689ee8a784a48d744ae3d5b388869d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1253988391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253988387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31287f2e8cc8af644be80f291a2f7268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - Entries:
-    - Weight: 1
-      Item: {fileID: 11400000, guid: 4502fd6e5e8fe074a97186a24aa28c3e, type: 2}
-  SpawnedClip: {fileID: 0}
 --- !u!4 &1256207986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 572a037275ae6c040a92f6080e924aeb,
@@ -53859,7 +53769,7 @@ PrefabInstance:
     - target: {fileID: 4961351870411836090, guid: 413d04a8e1a54774390ab44654b70554,
         type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4961351870411836090, guid: 413d04a8e1a54774390ab44654b70554,
         type: 3}
@@ -67150,7 +67060,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651703251}
-  m_LocalRotation: {x: -0.0000000037252903, y: -0, z: -0.0000000037252903, w: 1}
+  m_LocalRotation: {x: -0.000000011175871, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
