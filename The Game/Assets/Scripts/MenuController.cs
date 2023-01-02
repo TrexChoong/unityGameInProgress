@@ -31,7 +31,6 @@ public class MenuController : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("ok");
         Application.Quit();
     }
 
